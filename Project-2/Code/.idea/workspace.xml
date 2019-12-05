@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1201ff6e-d4fa-4c8a-8323-5bc6ecbac76f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/sierra_kilo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/f_function.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-1/f_function.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-2/f_function.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-1-newton-raphson.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-1-partitioning.py" beforeDir="false" afterPath="$PROJECT_DIR$/root_estimation_algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/f_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +30,18 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/task-2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/task-1-package" />
+      <recent name="$PROJECT_DIR$/task-1" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/task-2" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -82,7 +91,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/root_estimation_algorithms.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-1-package/root_estimation_algorithms.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,6 +143,8 @@
       <workItem from="1575042358097" duration="191000" />
       <workItem from="1575299715050" duration="4279000" />
       <workItem from="1575499198387" duration="5771000" />
+      <workItem from="1575547629437" duration="8227000" />
+      <workItem from="1575563575049" duration="3593000" />
     </task>
     <servers />
   </component>
