@@ -1,4 +1,4 @@
-from .f_function import F_Function
+from f_function import Ffunction
 import math
 
 # Tolerable error for our approximation calculation
@@ -9,7 +9,7 @@ def partitioning_root_estimation():
     # Amount of iterations needed to reach
     # the required estimate accuracy
     n = math.floor(
-        (math.log(F_Function.calc_space[1] - F_Function.calc_space[0], math.e) -
+        (math.log(Ffunction.calc_space[1] - Ffunction.calc_space[0], math.e) -
          math.log(t_err, math.e)) / math.log(2, math.e))
 
     # States whether a root solution was found during the approximation iterations
@@ -18,18 +18,18 @@ def partitioning_root_estimation():
     m = 0
 
     for i in range(n):
-        m = (F_Function.calc_space[0] + F_Function.calc_space[1]) / 2
-        f_m = F_Function.calculate_f(m)
+        m = (Ffunction.calc_space[0] + Ffunction.calc_space[1]) / 2
+        f_m = Ffunction.calculate_f(m)
 
         if f_m == 0:
             found_root = True
             break
         else:
-            f_a =  F_Function.calculate_f(F_Function.calc_space[0])
+            f_a =  Ffunction.calculate_f(Ffunction.calc_space[0])
             if f_m * f_a < 0:
-                F_Function.calc_space[1] = m
+                Ffunction.calc_space[1] = m
             else:
-                F_Function.calc_space[0] = m
+                Ffunction.calc_space[0] = m
 
     if found_root:
         print("A root solution was found: ", m)
@@ -47,10 +47,10 @@ def newton_raphson_root_estimation():
     x_n = None
 
     # initialize Xn-1 with -2
-    x_nm1 = F_Function.calc_space[0]
+    x_nm1 = Ffunction.calc_space[0]
 
     while not stop:
-        x_n = x_nm1 - (F_Function.calculate_f(x_nm1) / F_Function.calculate_der_1_f(x_nm1))
+        x_n = x_nm1 - (Ffunction.calculate_f(x_nm1) / Ffunction.calculate_der_1_f(x_nm1))
 
         print(iter_count)
         print(x_n - x_nm1)
@@ -74,17 +74,17 @@ def secant_root_estimation():
     iter_count = 0
 
     # initialize Xn-1 with -2
-    x_nm1 = F_Function.calc_space[0]
+    x_nm1 = Ffunction.calc_space[0]
 
     # initialize Xn with 2
-    x_n = F_Function.calc_space[1]
+    x_n = Ffunction.calc_space[1]
 
     # Xn+1
     x_np1 = None
 
     while not stop:
-        x_np1 = x_n - ((F_Function.calculate_f(x_n) * (x_n - x_nm1)) /
-                       (F_Function.calculate_f(x_n) - F_Function.calculate_f(x_nm1)))
+        x_np1 = x_n - ((Ffunction.calculate_f(x_n) * (x_n - x_nm1)) /
+                       (Ffunction.calculate_f(x_n) - Ffunction.calculate_f(x_nm1)))
 
         print(iter_count)
         print(x_np1 - x_n)

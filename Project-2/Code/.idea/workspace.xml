@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1201ff6e-d4fa-4c8a-8323-5bc6ecbac76f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/task-1/f_function.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task-2/f_function.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/f_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/f_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/f_function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.root_estimation_algorithms">
+  <component name="RunManager" selected="Python.modified_root_estimation_algorithms">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +69,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="modified_root_estimation_algorithms" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task-2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="root_estimation_algorithms (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task-1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,6 +167,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.modified_root_estimation_algorithms" />
+        <item itemvalue="Python.root_estimation_algorithms (1)" />
         <item itemvalue="Python.root_estimation_algorithms" />
         <item itemvalue="Python.task-1-newton-raphson" />
       </list>
@@ -144,7 +189,8 @@
       <workItem from="1575299715050" duration="4279000" />
       <workItem from="1575499198387" duration="5771000" />
       <workItem from="1575547629437" duration="8227000" />
-      <workItem from="1575563575049" duration="3593000" />
+      <workItem from="1575563575049" duration="3717000" />
+      <workItem from="1575630744418" duration="4213000" />
     </task>
     <servers />
   </component>
@@ -166,7 +212,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Code$root_estimation_algorithms.coverage" NAME="root_estimation_algorithms Coverage Results" MODIFIED="1575508028717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Code$root_estimation_algorithms__1_.coverage" NAME="root_estimation_algorithms (1) Coverage Results" MODIFIED="1575631657494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task-1" />
     <SUITE FILE_PATH="coverage/Code$task_1.coverage" NAME="task-1 Coverage Results" MODIFIED="1575304501211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Code$modified_root_estimation_algorithms.coverage" NAME="modified_root_estimation_algorithms Coverage Results" MODIFIED="1575634914266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task-2" />
     <SUITE FILE_PATH="coverage/Code$task_1_newton_raphson.coverage" NAME="task-1-newton-raphson Coverage Results" MODIFIED="1575505474704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

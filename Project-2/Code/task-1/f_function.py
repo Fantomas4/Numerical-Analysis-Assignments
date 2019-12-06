@@ -1,7 +1,7 @@
 import math
 
 
-class F_Function:
+class Ffunction:
 
     # The space in which function f is defined
     calc_space = [-2, 2]
