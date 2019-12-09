@@ -42,8 +42,6 @@ def modified_newton_raphson_root_estimation(limit_of_iterations=None):
     # number of iterations executed
     iter_count = 0
 
-    x_np1 = None
-
     # initialize Xn with -2
     x_n = Ffunction.calc_space[0]
 
@@ -51,13 +49,13 @@ def modified_newton_raphson_root_estimation(limit_of_iterations=None):
         x_np1 = x_n - 1 / (Ffunction.calculate_der_1_f(x_n) / Ffunction.calculate_f(x_n)) \
                 - (0.5 * Ffunction.calculate_der_2_f(x_n) / Ffunction.calculate_der_1_f(x_n))
 
-        print(iter_count)
-        print(x_np1 - x_n)
-        print("===========")
+        # print(iter_count)
+        # print(x_np1 - x_n)
+        # print("===========")
         if limit_of_iterations is None:
             # no specific amount of iterations to be executed was given to the method, so
             # we estimate the stop point of our iterations based on the given t_err (desired precision)
-            if x_np1 - x_n <= t_err:
+            if abs(x_np1 - x_n <= t_err):
                 # we reached the desired precision, so we can now stop the iterations
                 break
         else:
@@ -73,8 +71,6 @@ def modified_newton_raphson_root_estimation(limit_of_iterations=None):
 
 
 def modified_secant_root_estimation():
-    # flag that states whether to continue the secant approximation iterations or stop
-    stop = False
 
     # number of iterations executed
     iter_count = 0
@@ -87,28 +83,28 @@ def modified_secant_root_estimation():
     # initialize Xn
     x_n = Ffunction.calc_space[0]
 
-    # initialize Xn+1 with (calc_space[0] + calc_space[1]) / 2
-    x_np1 = (Ffunction.calc_space[0] + Ffunction.calc_space[1]) / 2
+    # initialize Xn+1 with (calc_space[0] + calc_space[1]) / 2 ---> Bad initialization that causes division by zero!
+    # x_np1 = (Ffunction.calc_space[0] + Ffunction.calc_space[1]) / 2
+
+    # initialize Xn+1 with 0.1
+    x_np1 = 0.1
 
     # initialize Xn+2
     x_np2 = Ffunction.calc_space[1]
 
-    # Xn+3
-    x_np3 = None
-
-    while not stop:
+    while True:
         q = Ffunction.calculate_f(x_n) / Ffunction.calculate_f(x_np1)
         r = Ffunction.calculate_f(x_np2) / Ffunction.calculate_f(x_np1)
         s = Ffunction.calculate_f(x_np2) / Ffunction.calculate_f(x_n)
 
         x_np3 = x_np2 - (r * (r - q) * (x_np2 - x_np1) + (1 - r) * s * (x_np2 - x_n)) / ((q - 1) * (r - 1) * (s - 1))
 
-        print(iter_count)
-        print(x_np3 - x_np2)
-        print("===========")
-        if x_np3 - x_np2 <= t_err:
+        # print(iter_count)
+        # print(x_np3 - x_np2)
+        # print("===========")
+        if abs(x_np3 - x_np2) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
-            stop = True
+            break
 
         # update the Xn element specified by the update_x_ind
         if update_x_ind == 0:
