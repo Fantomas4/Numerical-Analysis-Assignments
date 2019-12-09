@@ -46,8 +46,8 @@ def modified_newton_raphson_root_estimation(limit_of_iterations=None):
     x_n = Ffunction.calc_space[0]
 
     while True:
-        x_np1 = x_n - 1 / (Ffunction.calculate_der_1_f(x_n) / Ffunction.calculate_f(x_n)) \
-                - (0.5 * Ffunction.calculate_der_2_f(x_n) / Ffunction.calculate_der_1_f(x_n))
+        x_np1 = x_n - 1 / ((Ffunction.calculate_der_1_f(x_n) / Ffunction.calculate_f(x_n))
+                           - (0.5 * Ffunction.calculate_der_2_f(x_n) / Ffunction.calculate_der_1_f(x_n)))
 
         # print(iter_count)
         # print(x_np1 - x_n)

@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1201ff6e-d4fa-4c8a-8323-5bc6ecbac76f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/(e^sin^3(x)) + (x^6) - 2 * (x^4) - (x^3) - 1= 0 - Wolfram|Alpha.desktop" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/54 * (x^6) + 45 * (x^5) - 102 * (x^4) - 69 * (x^3) + 35 * (x^2) + 16 * (x) - 4 - Wolfram|Alpha.desktop" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task-3/pa_lu_gauss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,8 +192,16 @@
       <workItem from="1575563575049" duration="3717000" />
       <workItem from="1575630744418" duration="4796000" />
       <workItem from="1575734399213" duration="7000" />
-      <workItem from="1575896338287" duration="7394000" />
+      <workItem from="1575896338287" duration="7654000" />
     </task>
+    <task id="LOCAL-00001" summary="Made fixes to the code for tasks 1 and 2.">
+      <created>1575909586110</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575909586111</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,23 +220,31 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Made fixes to the code for tasks 1 and 2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made fixes to the code for tasks 1 and 2." />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1874" height="222" key="GridCell.Tab.0.bottom" timestamp="1575909397410">
+    <state x="407" y="107" width="1096" height="807" key="CommitChangelistDialog2" timestamp="1575909585880">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="222" key="GridCell.Tab.0.bottom/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909397410" />
-    <state width="1874" height="222" key="GridCell.Tab.0.center" timestamp="1575909397410">
+    <state x="407" y="107" width="1096" height="807" key="CommitChangelistDialog2/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909585880" />
+    <state width="1874" height="222" key="GridCell.Tab.0.bottom" timestamp="1575909743848">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="222" key="GridCell.Tab.0.center/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909397410" />
-    <state width="1874" height="222" key="GridCell.Tab.0.left" timestamp="1575909397410">
+    <state width="1874" height="222" key="GridCell.Tab.0.bottom/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909743848" />
+    <state width="1874" height="222" key="GridCell.Tab.0.center" timestamp="1575909743848">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="222" key="GridCell.Tab.0.left/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909397410" />
-    <state width="1874" height="222" key="GridCell.Tab.0.right" timestamp="1575909397410">
+    <state width="1874" height="222" key="GridCell.Tab.0.center/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909743848" />
+    <state width="1874" height="222" key="GridCell.Tab.0.left" timestamp="1575909743847">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="222" key="GridCell.Tab.0.right/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909397410" />
+    <state width="1874" height="222" key="GridCell.Tab.0.left/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909743847" />
+    <state width="1874" height="222" key="GridCell.Tab.0.right" timestamp="1575909743848">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="222" key="GridCell.Tab.0.right/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909743848" />
     <state width="1874" height="354" key="GridCell.Tab.1.bottom" timestamp="1575909348320">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -250,6 +261,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="354" key="GridCell.Tab.1.right/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909348320" />
+    <state x="555" y="247" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1575909588143">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="555" y="247" width="800" height="528" key="Vcs.Push.Dialog.v2/191.1080.1600.900/0.0.1920.1080@0.0.1920.1080" timestamp="1575909588143" />
     <state x="456" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1575734398342">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
@@ -273,7 +288,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Code$root_estimation_algorithms__1_.coverage" NAME="root_estimation_algorithms (1) Coverage Results" MODIFIED="1575907965592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task-1" />
-    <SUITE FILE_PATH="coverage/Code$modified_root_estimation_algorithms.coverage" NAME="modified_root_estimation_algorithms Coverage Results" MODIFIED="1575909397400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task-2" />
+    <SUITE FILE_PATH="coverage/Code$modified_root_estimation_algorithms.coverage" NAME="modified_root_estimation_algorithms Coverage Results" MODIFIED="1575909743833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task-2" />
     <SUITE FILE_PATH="coverage/Code$task_1.coverage" NAME="task-1 Coverage Results" MODIFIED="1575304501211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Code$root_estimation_algorithms.coverage" NAME="root_estimation_algorithms Coverage Results" MODIFIED="1575508028717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Code$task_1_newton_raphson.coverage" NAME="task-1-newton-raphson Coverage Results" MODIFIED="1575505474704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
