@@ -36,6 +36,10 @@ def perform_pa_lu_decomposition(a_matrix):
 
         for row in range(pivot_pos[0] + 1, a_size):
 
+            # Sort the column elements as in descending order,
+            # by swapping the elements' rows, starting from the pivot's row and below
+
+
             # Find the maximum element of the pivot's column,
             # searching from the pivot element's position and below
             max_pos = [pivot_pos[0], pivot_pos[1]]
@@ -72,19 +76,26 @@ def perform_pa_lu_decomposition(a_matrix):
             # Get the pivot element's value
             pivot_elem = a_matrix[pivot_pos[0]][pivot_pos[1]]
 
+            # Get the whole row in which the pivot is located
+            pivot_row = a_matrix[pivot_pos[0]]
+
             for r in range(pivot_pos[0] + 1, a_size):
                 # Get the column element's whole row
                 target_row = a_matrix[r]
 
+                # Get the first element of target row that is below the diagonal's current pivot
+                target_first_elem = target_row[pivot_pos[1]]
+
                 # For each element of the target row, starting from the element at the same column as the pivot,
                 # perform the matrix calculations
                 for elem in range(pivot_pos[1], len(target_row)):
-                    target_row[elem] = target_row[elem] + pivot_elem * (- target_row[pivot_pos[1]] / pivot_elem)
+                    # target_row[elem] = target_row[elem] + pivot_elem * (- target_row[pivot_pos[1]] / pivot_elem)
+                    target_row[elem] = target_row[elem] + pivot_row[elem] * (- target_first_elem / pivot_elem)
 
                 # Place the modified row back to A matrix
                 a_matrix[r] = target_row
 
-    print("Result-> A matrix is: ")
+    print("\n\nResult-> A matrix is: ")
     for line in a_matrix:
         print(*line)
 
