@@ -2,6 +2,12 @@
 # matrix L, an upper triangular matrix U and a permutation vector P, so that
 # P * A = L * U
 def perform_pa_lu_decomposition(a_matrix):
+
+    # A matrix is a list of lists, each representing a row
+    print("Input-> A matrix is:")
+    for line in a_matrix:
+        print(*line)
+
     # Calculate the size of A matrix
     a_size = len(a_matrix)
 
@@ -23,52 +29,70 @@ def perform_pa_lu_decomposition(a_matrix):
     # Create a vector representing the permutation vector P
     p_vector = [i for i in range(a_size)]
 
-    # The current pivot element's position in [row, column] format
-    pivot_pos = [0, 0]
-
     for col in range(a_size):
-        # Find the maximum element of the pivot's column,
-        # searching from the diagonal's element in the pivot's column and below
-        max_pos = [pivot_pos[1], pivot_pos[1]]
-        max_value = a_matrix[max_pos[0], max_pos[1]]
 
-        for line in range(pivot_pos[0] + 1, a_size):
-            if a_matrix[line][col] > max_value:
-                max_value = a_matrix[line][col]
-                max_pos = [line, col]
-
-        # If an element below the pivot is found to have a greater value than it,
-        # swap the pivot's row with the max element's row
-        if max_pos != pivot_pos:
-            # Get the pivot's row
-            pivot_row = [a_matrix[pivot_pos[0]][k] for k in range(a_size)]
-
-            # Get the max element's row
-            max_row = [a_matrix[max_pos[0]][k] for k in range(a_size)]
-
-            # Swap the rows in A matrix
-            a_matrix[pivot_pos[0]] = max_row
-            a_matrix[max_pos[0]] = pivot_row
-
-            # Update pivot_pos value
-            pivot_pos = max_pos
-
-        # Make all elements below the main diagonal element zero.
-        # To do that, we will make matrix calculations between the pivot's row
-        # and each of the target rows
-
-        # First, find the diagonal element of our column
-        diag_elem_pos = [pivot_pos[0], pivot_pos[0]]
-
-        # Get the whole row where the pivot is located
-        pivot_row = a_matrix[pivot_pos[0]]
+        # The current pivot element's position in [row, column] format
+        pivot_pos = [col, col]
 
         for row in range(pivot_pos[0] + 1, a_size):
-            # Get the column element's whole row
-            target_row = a_matrix[row]
 
-            # For each element of the target row, perform the matrix calculations
+            # Find the maximum element of the pivot's column,
+            # searching from the pivot element's position and below
+            max_pos = [pivot_pos[0], pivot_pos[1]]
+            max_value = a_matrix[max_pos[0]][max_pos[1]]
 
+            for line in range(pivot_pos[0] + 1, a_size):
+                if abs(a_matrix[line][col]) > abs(max_value):
+                    max_value = a_matrix[line][col]
+                    max_pos = [line, col]
+
+            # If an element below the pivot is found to have a greater value than it,
+            # swap the pivot's row with the max element's row
+            if max_pos != pivot_pos:
+                # Get the pivot's row
+                # pivot_row = [a_matrix[pivot_pos[0]][k] for k in range(a_size)]
+                pivot_row = a_matrix[pivot_pos[0]]
+
+                # Get the max element's row
+                max_row = a_matrix[max_pos[0]]
+
+                # Swap the rows in A matrix
+                a_matrix[pivot_pos[0]] = max_row
+                a_matrix[max_pos[0]] = pivot_row
+
+                # Modify the permutation vector P
+                temp = p_vector[pivot_pos[0]]
+                p_vector[pivot_pos[0]] = p_vector[max_pos[0]]
+                p_vector[max_pos[0]] = temp
+
+            # Make all elements below the pivot element zero.
+            # To do that, we will make matrix calculations between the pivot's row
+            # and each of the target rows
+
+            # Get the pivot element's value
+            pivot_elem = a_matrix[pivot_pos[0]][pivot_pos[1]]
+
+            for r in range(pivot_pos[0] + 1, a_size):
+                # Get the column element's whole row
+                target_row = a_matrix[r]
+
+                # For each element of the target row, starting from the element at the same column as the pivot,
+                # perform the matrix calculations
+                for elem in range(pivot_pos[1], len(target_row)):
+                    target_row[elem] = target_row[elem] + pivot_elem * (- target_row[pivot_pos[1]] / pivot_elem)
+
+                # Place the modified row back to A matrix
+                a_matrix[r] = target_row
+
+    print("Result-> A matrix is: ")
+    for line in a_matrix:
+        print(*line)
+
+test_matrix = []
+test_matrix.append([2, 4, 1])
+test_matrix.append([-1, -2, 2])
+test_matrix.append([4, 2, -3])
+perform_pa_lu_decomposition(test_matrix)
 
 
 
