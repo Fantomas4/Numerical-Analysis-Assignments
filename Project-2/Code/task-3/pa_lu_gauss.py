@@ -88,10 +88,15 @@ def perform_pa_lu_decomposition(a_matrix):
     for line in a_matrix:
         print(*line)
 
+# test_matrix = []
+# test_matrix.append([2, 4, 1])
+# test_matrix.append([-1, -2, 2])
+# test_matrix.append([4, 2, -3])
 test_matrix = []
-test_matrix.append([2, 4, 1])
-test_matrix.append([-1, -2, 2])
-test_matrix.append([4, 2, -3])
+test_matrix.append([1.383, 0.1, 0.5])
+test_matrix.append([0.0077, 0.1, 0.1976])
+test_matrix.append([-2.6452, -1.383, 1.9127])
+
 perform_pa_lu_decomposition(test_matrix)
 
 
