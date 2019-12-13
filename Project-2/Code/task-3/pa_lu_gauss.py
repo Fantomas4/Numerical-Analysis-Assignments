@@ -1,16 +1,16 @@
-def mult_matrix(M, N):
-    """Multiply square matrices of same dimension M and N"""
+def mult_matrix(m1_matrix, m2_matrix):
+    """Multiplies the square matrices m1_matrix and m2_matrix that are of equal dimensions"""
     # Create an empty result matrix filled with 0's
     result_matrix = []
-    for i in range(len(M)):
-        result_matrix.append([0] * len(N[0]))
+    for i in range(len(m1_matrix)):
+        result_matrix.append([0] * len(m2_matrix[0]))
 
-    for i in range(len(M)):
-        m_row = M[i]
-        for j in range(len(N[0])):
+    for i in range(len(m1_matrix)):
+        m_row = m1_matrix[i]
+        for j in range(len(m2_matrix[0])):
             n_column = []
-            for line in range(len(N)):
-                n_column.append(N[line][j])
+            for line in range(len(m2_matrix)):
+                n_column.append(m2_matrix[line][j])
 
             for k in range(len(m_row)):
                 result_matrix[i][j] += m_row[k] * n_column[k]
@@ -18,68 +18,77 @@ def mult_matrix(M, N):
     return result_matrix
 
 
-
-def pivot_matrix(M):
+def pivot_matrix(m_matrix):
     """Returns the pivoting matrix for M, used in Doolittle's method."""
-    m = len(M)
+    m_size = len(m_matrix)
 
     # Create an identity matrix, with floating point values
-    id_mat = [[float(i ==j) for i in range(m)] for j in range(m)]
+    id_matrix = [[float(i == j) for i in range(m_size)] for j in range(m_size)]
 
-    # Rearrange the identity matrix such that the largest element of
-    # each column of M is placed on the diagonal of M
-    for j in range(m):
-        row = max(range(j, m), key=lambda i: abs(M[i][j]))
+    # Rearrange the id_matrix so that the largest element of each column
+    # of m_matrix is placed on the diagonal of m_matrix
+    for j in range(m_size):
+        row = max(range(j, m_size), key=lambda i: abs(m_matrix[i][j]))
         if j != row:
             # Swap the rows
-            id_mat[j], id_mat[row] = id_mat[row], id_mat[j]
+            id_matrix[j], id_matrix[row] = id_matrix[row], id_matrix[j]
 
-    return id_mat
+    return id_matrix
 
-def lu_decomposition(A):
+
+def lu_decomposition(a_matrix):
     """Performs an LU Decomposition of A (which must be square)
     into PA = LU. The function returns P, L and U."""
-    n = len(A)
+    n = len(a_matrix)
 
     # Create zero matrices for L and U
-    L = [[0.0] * n for i in range(n)]
-    U = [[0.0] * n for i in range(n)]
+    l_matrix = []
+    for i in range(n):
+        l_matrix.append([0.0] * n)
 
-    # Create the pivot matrix P and the multipled matrix PA
-    P = pivot_matrix(A)
+    u_matrix = []
+    for i in range(n):
+        u_matrix.append([0.0] * n)
 
-    #BUG IN LINE 39! PA = mult_matrix(P, A)
-    PA = mult_matrix(P, A)
+    # Create the pivot matrix P
+    p_matrix = pivot_matrix(a_matrix)
 
-    # Perform the LU Decomposition
+    # Create the PA matrix, which is the product of matrices P and A
+    pa_matrix = mult_matrix(p_matrix, a_matrix)
+
+    # Perform the LU decomposition
     for j in range(n):
-        # All diagonal entries of L are set to unity
-        L[j][j] = 1.0
+        # Set all diagonal elements of l_matrix to 1.0
+        l_matrix[j][j] = 1.0
 
         # LaTeX: u_{ij} = a_{ij} - \sum_{k=1}^{i-1} u_{kj} l_{ik}
         for i in range(j+1):
-            s1 = sum(U[k][j] * L[i][k] for k in range(i))
-            U[i][j] = PA[i][j] - s1
+            s1 = sum(u_matrix[k][j] * l_matrix[i][k] for k in range(i))
+            u_matrix[i][j] = pa_matrix[i][j] - s1
 
         # LaTeX: l_{ij} = \frac{1}{u_{jj}} (a_{ij} - \sum_{k=1}^{j-1} u_{kj} l_{ik} )
         for i in range(j, n):
-            s2 = sum(U[k][j] * L[i][k] for k in range(j))
-            L[i][j] = (PA[i][j] - s2) / U[j][j]
+            s2 = sum(u_matrix[k][j] * l_matrix[i][k] for k in range(j))
+            l_matrix[i][j] = (pa_matrix[i][j] - s2) / u_matrix[j][j]
 
-    return (P, L, U)
+    return p_matrix, l_matrix, u_matrix
 
 
 A = [[7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6]]
 P, L, U = lu_decomposition(A)
 
-print("A:")
-print(A)
+print("\nA:")
+for line in A:
+    print(line)
 
-print("P:")
-print(P)
+print("\nP:")
+for line in P:
+    print(line)
 
-print("L:")
-print(L)
+print("\nL:")
+for line in L:
+    print(line)
 
-print("U:")
-print(U)
+print("\nU:")
+for line in U:
+    print(line)
