@@ -28,10 +28,15 @@ def calculate_pivot_matrix(m_matrix):
     # Rearrange the id_matrix so that the largest element of each column
     # of m_matrix is placed on the diagonal of m_matrix
     for j in range(m_size):
-        row = max(range(j, m_size), key=lambda i: abs(m_matrix[i][j]))
-        if j != row:
-            # Swap the rows
-            id_matrix[j], id_matrix[row] = id_matrix[row], id_matrix[j]
+        max_row = j
+        max_value = abs(m_matrix[j][j])
+        for i in range(j, m_size):
+            if abs(m_matrix[i][j]) > max_value:
+                max_row = i
+
+        if j != max_row:
+            # Swap the affected rows
+            id_matrix[j], id_matrix[max_row] = id_matrix[max_row], id_matrix[j]
 
     return id_matrix
 
@@ -64,12 +69,18 @@ def perform_pa_lu_decomposition(a_matrix):
 
         # LaTeX: u_{ij} = a_{ij} - \sum_{k=1}^{i-1} u_{kj} l_{ik}
         for i in range(j+1):
-            s1 = sum(u_matrix[k][j] * l_matrix[i][k] for k in range(i))
+            s1 = 0
+            for k in range(i):
+                s1 += u_matrix[k][j] * l_matrix[i][k]
+
             u_matrix[i][j] = pa_matrix[i][j] - s1
 
         # LaTeX: l_{ij} = \frac{1}{u_{jj}} (a_{ij} - \sum_{k=1}^{j-1} u_{kj} l_{ik} )
         for i in range(j, n):
-            s2 = sum(u_matrix[k][j] * l_matrix[i][k] for k in range(j))
+            s2 = 0
+            for k in range(j):
+                s2 += u_matrix[k][j] * l_matrix[i][k]
+
             l_matrix[i][j] = (pa_matrix[i][j] - s2) / u_matrix[j][j]
 
     return p_matrix, l_matrix, u_matrix
