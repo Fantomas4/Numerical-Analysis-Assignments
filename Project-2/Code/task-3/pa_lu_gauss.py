@@ -1,4 +1,4 @@
-def mult_matrix(m1_matrix, m2_matrix):
+def multiply_matrices(m1_matrix, m2_matrix):
     """Multiplies the square matrices m1_matrix and m2_matrix that are of equal dimensions"""
     # Create an empty result matrix filled with 0's
     result_matrix = []
@@ -9,8 +9,8 @@ def mult_matrix(m1_matrix, m2_matrix):
         m_row = m1_matrix[i]
         for j in range(len(m2_matrix[0])):
             n_column = []
-            for line in range(len(m2_matrix)):
-                n_column.append(m2_matrix[line][j])
+            for b in range(len(m2_matrix)):
+                n_column.append(m2_matrix[b][j])
 
             for k in range(len(m_row)):
                 result_matrix[i][j] += m_row[k] * n_column[k]
@@ -18,8 +18,8 @@ def mult_matrix(m1_matrix, m2_matrix):
     return result_matrix
 
 
-def pivot_matrix(m_matrix):
-    """Returns the pivoting matrix for M, used in Doolittle's method."""
+def calculate_pivot_matrix(m_matrix):
+    """Returns the pivoting matrix for m_matrix, used in Doolittle's PA = LU decomposition method."""
     m_size = len(m_matrix)
 
     # Create an identity matrix, with floating point values
@@ -36,9 +36,10 @@ def pivot_matrix(m_matrix):
     return id_matrix
 
 
-def lu_decomposition(a_matrix):
-    """Performs an LU Decomposition of A (which must be square)
-    into PA = LU. The function returns P, L and U."""
+def perform_pa_lu_decomposition(a_matrix):
+    """Performs a PA = LU decomposition on a_matrix (a_matrix must be a square matrix)
+     The function returns matrices P, L and U."""
+
     n = len(a_matrix)
 
     # Create zero matrices for L and U
@@ -51,12 +52,12 @@ def lu_decomposition(a_matrix):
         u_matrix.append([0.0] * n)
 
     # Create the pivot matrix P
-    p_matrix = pivot_matrix(a_matrix)
+    p_matrix = calculate_pivot_matrix(a_matrix)
 
     # Create the PA matrix, which is the product of matrices P and A
-    pa_matrix = mult_matrix(p_matrix, a_matrix)
+    pa_matrix = multiply_matrices(p_matrix, a_matrix)
 
-    # Perform the LU decomposition
+    # Perform the PA = LU decomposition
     for j in range(n):
         # Set all diagonal elements of l_matrix to 1.0
         l_matrix[j][j] = 1.0
@@ -75,7 +76,7 @@ def lu_decomposition(a_matrix):
 
 
 A = [[7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6]]
-P, L, U = lu_decomposition(A)
+P, L, U = perform_pa_lu_decomposition(A)
 
 print("\nA:")
 for line in A:
