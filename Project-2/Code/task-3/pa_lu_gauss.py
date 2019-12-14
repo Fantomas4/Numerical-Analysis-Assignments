@@ -58,15 +58,12 @@ def perform_pa_lu_decomposition(a_matrix):
     for i in range(n):
         u_matrix.append([0.0] * n)
 
-    # Create the PA matrix, which is the product of matrices P and A,
-    # and initialize it using the A matrix
+    # Create the PA matrix, which is the product of matrices P and A
+    # Initialize PA matrix using the the A matrix
     pa_matrix = a_matrix
 
     # Create the pivot matrix P
     p_matrix = calculate_pivot_matrix(pa_matrix)
-
-    # # Create the PA matrix, which is the product of matrices P and A
-    # pa_matrix = multiply_matrices(p_matrix, a_matrix)
 
     # Perform the PA = LU decomposition
     for j in range(n):
@@ -98,7 +95,7 @@ def gauss(a_matrix, b_vector):
 
     # Ax = b => PAx = Pb => LUx = Pb => Lc = Pb when Ux = c
 
-    # Create vector c
+    # Create c vector
     c_vector = [0.0] * len(l_matrix)
 
     # Convert b_vector to the format used for matrices
@@ -111,61 +108,25 @@ def gauss(a_matrix, b_vector):
 
     # Calculate c_vector by solving Lc = Pb
     for c in range(len(c_vector)):
-        c_vector[c] = pb_matrix[c][0] - sum(c_vector[j] * l_matrix[c][j] for j in range(c-1) if c > 0)
+        c_vector[c] = pb_matrix[c][0] - sum(c_vector[j] * l_matrix[c][j] for j in range(c) if c > 0)
 
-    print("DIAG -> c_vector: ", c_vector)
+    # Create x vector
+    x_vector = [0.0] * len(u_matrix)
 
+    # Convert c_vector to the format used for matrices
+    c_matrix = []
+    for elem in c_vector:
+        c_matrix.append([float(elem)])
 
+    # Calculate x_vector by solving Ux = c
+    for x in range(len(x_vector) - 1, -1, -1):
+        x_vector[x] = c_vector[x] / u_matrix[x][x] - sum(u_matrix[x][j] * x_vector[j] / u_matrix[x][x] for j in range(len(u_matrix) - 1, x, -1))
 
-
-
-
-
-
-
-
-
-# A = [[7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6]]
-# P, L, U = perform_pa_lu_decomposition(A)
-#
-# print("\nA:")
-# for line in A:
-#     print(line)
-#
-# print("\nP:")
-# for line in P:
-#     print(line)
-#
-# print("\nL:")
-# for line in L:
-#     print(line)
-#
-# print("\nU:")
-# for line in U:
-#     print(line)
-
-
+    return x_vector
 
 
 A = [[2.0, 1.0, 5.0], [4.0, 4.0, -4.0], [1.0, 3.0, 1.0]]
 b = [5.0, 0.0, 6.0]
 
-P, L, U = perform_pa_lu_decomposition(A)
-
-print("\nA:")
-for line in A:
-    print(line)
-
-print("\nP:")
-for line in P:
-    print(line)
-
-print("\nL:")
-for line in L:
-    print(line)
-
-print("\nU:")
-for line in U:
-    print(line)
-
-gauss(A, b)
+print("*** Result ***")
+print("x vector is: ", gauss(A, b))
