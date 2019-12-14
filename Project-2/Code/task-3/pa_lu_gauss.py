@@ -47,16 +47,16 @@ def perform_pa_lu_decomposition(a_matrix):
     """Performs a PA = LU decomposition on a_matrix (a_matrix must be a square matrix)
      The function returns matrices P, L and U."""
 
-    n = len(a_matrix)
+    a_size = len(a_matrix)
 
     # Create zero matrices for L and U
     l_matrix = []
-    for i in range(n):
-        l_matrix.append([0.0] * n)
+    for i in range(a_size):
+        l_matrix.append([0.0] * a_size)
 
     u_matrix = []
-    for i in range(n):
-        u_matrix.append([0.0] * n)
+    for i in range(a_size):
+        u_matrix.append([0.0] * a_size)
 
     # Create the PA matrix, which is the product of matrices P and A
     # Initialize PA matrix using the the A matrix
@@ -66,7 +66,7 @@ def perform_pa_lu_decomposition(a_matrix):
     p_matrix = calculate_pivot_matrix(pa_matrix)
 
     # Perform the PA = LU decomposition
-    for j in range(n):
+    for j in range(a_size):
         # Set all diagonal elements of l_matrix to 1.0
         l_matrix[j][j] = 1.0
 
@@ -79,7 +79,7 @@ def perform_pa_lu_decomposition(a_matrix):
             u_matrix[i][j] = pa_matrix[i][j] - s1
 
         # LaTeX: l_{ij} = \frac{1}{u_{jj}} (a_{ij} - \sum_{k=1}^{j-1} u_{kj} l_{ik} )
-        for i in range(j, n):
+        for i in range(j, a_size):
             s2 = 0
             for k in range(j):
                 s2 += u_matrix[k][j] * l_matrix[i][k]
