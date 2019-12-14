@@ -1,5 +1,5 @@
 def multiply_matrices(m1_matrix, m2_matrix):
-    """Multiplies the square matrices m1_matrix and m2_matrix that are of equal dimensions"""
+    """Multiplies the matrices m1_matrix and m2_matrix and returns the result matrix"""
     # Create an empty result matrix filled with 0's
     result_matrix = []
     for i in range(len(m1_matrix)):
@@ -33,10 +33,12 @@ def calculate_pivot_matrix(m_matrix):
         for i in range(j, m_size):
             if abs(m_matrix[i][j]) > max_value:
                 max_row = i
+                max_value = m_matrix[i][j]
 
         if j != max_row:
             # Swap the affected rows
             id_matrix[j], id_matrix[max_row] = id_matrix[max_row], id_matrix[j]
+            m_matrix[j], m_matrix[max_row] = m_matrix[max_row], m_matrix[j]
 
     return id_matrix
 
@@ -56,11 +58,15 @@ def perform_pa_lu_decomposition(a_matrix):
     for i in range(n):
         u_matrix.append([0.0] * n)
 
-    # Create the pivot matrix P
-    p_matrix = calculate_pivot_matrix(a_matrix)
+    # Create the PA matrix, which is the product of matrices P and A,
+    # and initialize it using the A matrix
+    pa_matrix = a_matrix
 
-    # Create the PA matrix, which is the product of matrices P and A
-    pa_matrix = multiply_matrices(p_matrix, a_matrix)
+    # Create the pivot matrix P
+    p_matrix = calculate_pivot_matrix(pa_matrix)
+
+    # # Create the PA matrix, which is the product of matrices P and A
+    # pa_matrix = multiply_matrices(p_matrix, a_matrix)
 
     # Perform the PA = LU decomposition
     for j in range(n):
@@ -86,7 +92,64 @@ def perform_pa_lu_decomposition(a_matrix):
     return p_matrix, l_matrix, u_matrix
 
 
-A = [[7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6]]
+def gauss(a_matrix, b_vector):
+    # Perform the PA=LU decomposition of the given A matrix
+    p_matrix, l_matrix, u_matrix = perform_pa_lu_decomposition(a_matrix)
+
+    # Ax = b => PAx = Pb => LUx = Pb => Lc = Pb when Ux = c
+
+    # Create vector c
+    c_vector = [0.0] * len(l_matrix)
+
+    # Convert b_vector to the format used for matrices
+    b_matrix = []
+    for elem in b_vector:
+        b_matrix.append([float(elem)])
+
+    # Calculate Pb
+    pb_matrix = multiply_matrices(p_matrix, b_matrix)
+
+    # Calculate c_vector by solving Lc = Pb
+    for c in range(len(c_vector)):
+        c_vector[c] = pb_matrix[c][0] - sum(c_vector[j] * l_matrix[c][j] for j in range(c-1) if c > 0)
+
+    print("DIAG -> c_vector: ", c_vector)
+
+
+
+
+
+
+
+
+
+
+
+# A = [[7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6]]
+# P, L, U = perform_pa_lu_decomposition(A)
+#
+# print("\nA:")
+# for line in A:
+#     print(line)
+#
+# print("\nP:")
+# for line in P:
+#     print(line)
+#
+# print("\nL:")
+# for line in L:
+#     print(line)
+#
+# print("\nU:")
+# for line in U:
+#     print(line)
+
+
+
+
+A = [[2.0, 1.0, 5.0], [4.0, 4.0, -4.0], [1.0, 3.0, 1.0]]
+b = [5.0, 0.0, 6.0]
+
 P, L, U = perform_pa_lu_decomposition(A)
 
 print("\nA:")
@@ -104,3 +167,5 @@ for line in L:
 print("\nU:")
 for line in U:
     print(line)
+
+gauss(A, b)
