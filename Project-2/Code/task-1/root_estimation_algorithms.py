@@ -25,7 +25,7 @@ def partitioning_root_estimation():
             found_root = True
             break
         else:
-            f_a =  Ffunction.calculate_f(Ffunction.calc_space[0])
+            f_a = Ffunction.calculate_f(Ffunction.calc_space[0])
             if f_m * f_a < 0:
                 Ffunction.calc_space[1] = m
             else:
@@ -48,9 +48,9 @@ def newton_raphson_root_estimation():
     while True:
         x_n = x_nm1 - (Ffunction.calculate_f(x_nm1) / Ffunction.calculate_der_1_f(x_nm1))
 
-        print(iter_count)
-        print(x_n - x_nm1)
-        print("===========")
+        # print(iter_count)
+        # print(x_n - x_nm1)
+        # print("===========")
         if abs(x_n - x_nm1) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
             break
@@ -77,9 +77,9 @@ def secant_root_estimation():
         x_np1 = x_n - ((Ffunction.calculate_f(x_n) * (x_n - x_nm1)) /
                        (Ffunction.calculate_f(x_n) - Ffunction.calculate_f(x_nm1)))
 
-        print(iter_count)
-        print(x_np1 - x_n)
-        print("===========")
+        # print(iter_count)
+        # print(x_np1 - x_n)
+        # print("===========")
         if abs(x_np1 - x_n) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
             break
