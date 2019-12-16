@@ -7,8 +7,8 @@ t_err = 0.000005
 
 
 def modified_partitioning_root_estimation():
-    # Amount of iterations needed to reach
-    # the required estimate accuracy
+
+    # Estimate the amount of iterations needed to reach the required root estimate accuracy
     n = math.floor(
         (math.log(Ffunction.calc_space[1] - Ffunction.calc_space[0], math.e) -
          math.log(t_err, math.e)) / math.log(2, math.e))
@@ -21,6 +21,7 @@ def modified_partitioning_root_estimation():
     for i in range(n):
         m = random.uniform(Ffunction.calc_space[0], Ffunction.calc_space[1])
         f_m = Ffunction.calculate_f(m)
+        # print("DIAG--> m is: ", m)
 
         if f_m == 0:
             found_root = True
@@ -38,7 +39,7 @@ def modified_partitioning_root_estimation():
         print("Finished after " + str(n) + " approximation iterations. Approximation is: " + str(m))
 
 
-def modified_newton_raphson_root_estimation(limit_of_iterations=None):
+def modified_newton_raphson_root_estimation():
     # number of iterations executed
     iter_count = 0
 
@@ -49,19 +50,9 @@ def modified_newton_raphson_root_estimation(limit_of_iterations=None):
         x_np1 = x_n - 1 / ((Ffunction.calculate_der_1_f(x_n) / Ffunction.calculate_f(x_n))
                            - (0.5 * Ffunction.calculate_der_2_f(x_n) / Ffunction.calculate_der_1_f(x_n)))
 
-        # print(iter_count)
-        # print(x_np1 - x_n)
-        # print("===========")
-        if limit_of_iterations is None:
-            # no specific amount of iterations to be executed was given to the method, so
-            # we estimate the stop point of our iterations based on the given t_err (desired precision)
-            if abs(x_np1 - x_n <= t_err):
-                # we reached the desired precision, so we can now stop the iterations
-                break
-        else:
-            # if we have reached the iteration limit given to the method, we stop the iterations
-            if iter_count >= limit_of_iterations:
-                break
+        if abs(x_np1 - x_n <= t_err):
+            # we reached the desired precision, so we can now stop the iterations
+            break
 
         x_n = x_np1
 
@@ -99,9 +90,6 @@ def modified_secant_root_estimation():
 
         x_np3 = x_np2 - (r * (r - q) * (x_np2 - x_np1) + (1 - r) * s * (x_np2 - x_n)) / ((q - 1) * (r - 1) * (s - 1))
 
-        # print(iter_count)
-        # print(x_np3 - x_np2)
-        # print("===========")
         if abs(x_np3 - x_np2) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
             break
@@ -122,22 +110,18 @@ def modified_secant_root_estimation():
         if update_x_ind == 3:
             update_x_ind = 0
 
-        # x_np2 = x_np1
-        # x_np1 = x_n
-        # x_n = x_np3
-
         iter_count += 1
 
     print("Finished after " + str(iter_count) + " iterations, with root estimation: " + str(x_np1))
 
 
 if __name__ == "__main__":
-    print("*** Modified Partitioning Root Estimation ***")
-    modified_partitioning_root_estimation()
-    print("\n\n*** Modified Newton-Raphson Root Estimation ***")
+
+    print("\n*** Modified Newton-Raphson Root Estimation ***")
     modified_newton_raphson_root_estimation()
     print("\n\n*** Modified Secant Root Estimation ***")
     modified_secant_root_estimation()
-    print("\n\n*** Modified Newton-Raphson Root estimation for ONLY 10 iterations ***")
-    modified_newton_raphson_root_estimation(10)
+    print("\n\n*** Modified Partitioning Root Estimation ***")
+    modified_partitioning_root_estimation()
+
 

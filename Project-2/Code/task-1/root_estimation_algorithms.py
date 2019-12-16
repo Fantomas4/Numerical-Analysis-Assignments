@@ -93,7 +93,7 @@ def secant_root_estimation():
 
 
 if __name__ == "__main__":
-    print("*** Partitioning Root Estimation ***")
+    print("\n*** Partitioning Root Estimation ***")
     partitioning_root_estimation()
     print("\n\n*** Newton-Raphson Root Estimation ***")
     newton_raphson_root_estimation()
