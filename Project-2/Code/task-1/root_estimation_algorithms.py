@@ -32,9 +32,9 @@ def partitioning_root_estimation():
                 Ffunction.calc_space[0] = m
 
     if found_root:
-        print("A root solution was found: ", m)
+        print("Finished after " + str(i + 1) + " iteration(s). A root solution was found: ", m)
     else:
-        print("Did " + str(n) + "approximation iterations. Approximation is: " + str(m))
+        print("Finished after " + str(n) + " iteration(s), with root estimation: " + str(m))
 
 
 def newton_raphson_root_estimation():
@@ -59,7 +59,7 @@ def newton_raphson_root_estimation():
 
         iter_count += 1
 
-    print("Finished after " + str(iter_count) + " iterations, with root estimation: " + str(x_n))
+    print("Finished after " + str(iter_count) + " iteration(s), with root estimation: " + str(x_n))
 
 
 def secant_root_estimation():
@@ -89,14 +89,16 @@ def secant_root_estimation():
 
         iter_count += 1
 
-    print("Finished after " + str(iter_count) + " iterations, with root estimation: " + str(x_np1))
+    print("Finished after " + str(iter_count) + " iteration(s), with root estimation: " + str(x_np1))
 
 
 if __name__ == "__main__":
-    print("\n*** Partitioning Root Estimation ***")
-    partitioning_root_estimation()
     print("\n\n*** Newton-Raphson Root Estimation ***")
     newton_raphson_root_estimation()
     print("\n\n*** Secant Root Estimation ***")
     secant_root_estimation()
+    print("\n\n*** Partitioning Root Estimation ***")
+    partitioning_root_estimation()
+
+
 
