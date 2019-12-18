@@ -1,8 +1,9 @@
 # t_err specifies the required precision for our calculations.
 # A value of 0.00005 specifies a precision of 4 floating point numbers
 # (with rounding).
-t_err = 0.00005
-
+#t_err = 0.00005
+# FOR TESTING ONLY!!!
+t_err = 0.005
 
 def calculate_vector_diff(vector_1, vector_2):
     """ Takes 2 vectors and returns a new vector, which is the result of the subtraction
@@ -34,6 +35,9 @@ def generate_a_matrix(n):
     b_vector[0] = 3
     b_vector[n - 1] = 3
 
+    #FOR TESTING ONLY!!!!!
+    b_vector = [10, 10, 10]
+
     for i in range(n):
         for j in range(n):
             if i == j:
@@ -43,6 +47,9 @@ def generate_a_matrix(n):
                 # Case A(i+1,i) = A(i,i+1) = -2
                 a_matrix[i][j] = -2
 
+    # FOR TESTING ONLY!!!
+    a_matrix = [[8, 1, 1], [1, 8, 1], [1, 1, 8]]
+
     print("b_vector is: ", b_vector)
     print("a_matrix is: ")
     for line in a_matrix:
@@ -51,7 +58,7 @@ def generate_a_matrix(n):
     while True:
         old_x_vector = x_vector.copy()
         for i in range(n):
-            x_vector[i] = 1/a_matrix[i][i] * (b_vector[i] - sum(a_matrix[i][j] * x_vector[j] for j in range(i - 1)) -
+            x_vector[i] = 1/a_matrix[i][i] * (b_vector[i] - sum(a_matrix[i][j] * x_vector[j] for j in range(i)) -
                                               sum(a_matrix[i][j] * old_x_vector[j] for j in range(i + 1, n)))
 
         # Calculate the infinite norm of x_vector - old_x_vector
@@ -65,5 +72,5 @@ def generate_a_matrix(n):
     return x_vector
 
 
-result = generate_a_matrix(5)
+result = generate_a_matrix(3)
 print("Result returned is: ", result)
