@@ -16,7 +16,7 @@ def calculate_vector_diff(vector_1, vector_2):
 
 
 def generate_a_matrix(n):
-    """" Generates a matrix A of size n according to the rules specified in
+    """" Generates a matrix A of dimension nxn, according to the rules specified in
     the task's description."""
 
     # Initialize a_matrix with 0's
