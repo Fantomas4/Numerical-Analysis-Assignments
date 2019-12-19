@@ -1,8 +1,8 @@
 from math import sqrt
 
 
-def calculate_cholesky(A):
-    """Calculates the Cholesky decomposition of matrix A. Matrix A
+def perform_cholesky_decomposition(A):
+    """Performs the Cholesky decomposition on matrix A. Matrix A
     must be a symmetric and positive definite matrix.
     The function returns the lower triangular matrix L."""
     a_size = len(A)
@@ -27,7 +27,7 @@ def calculate_cholesky(A):
 
 
 A = [[6, 3, 4, 8], [3, 6, 5, 1], [4, 5, 10, 7], [8, 1, 7, 25]]
-L = calculate_cholesky(A)
+L = perform_cholesky_decomposition(A)
 
 print("A:")
 for line in A:
