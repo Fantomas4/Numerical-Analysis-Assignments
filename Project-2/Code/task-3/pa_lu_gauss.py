@@ -18,14 +18,16 @@ def multiply_matrices(m1_matrix, m2_matrix):
     return result_matrix
 
 
-def calculate_pivot_matrix(m_matrix):
-    """Returns the pivoting matrix for m_matrix, used in Doolittle's PA = LU decomposition method."""
+def perform_pivoting(m_matrix):
+    """Performs any necessary pivoting on m_matrix (making any changes in place)
+    and returns its pivoting matrix"""
+
     m_size = len(m_matrix)
 
     # Create an identity matrix, with floating point values
     id_matrix = [[float(i == j) for i in range(m_size)] for j in range(m_size)]
 
-    # Rearrange the id_matrix so that the largest element of each column
+    # Rearrange the id_matrix so that the largest absolute element of each column
     # of m_matrix is placed on the diagonal of m_matrix
     for j in range(m_size):
         max_row = j
@@ -58,12 +60,12 @@ def perform_pa_lu_decomposition(a_matrix):
     for i in range(a_size):
         u_matrix.append([0.0] * a_size)
 
-    # Create the PA matrix, which is the product of matrices P and A
+    # Create the PA matrix, which is the result of A matrix after performing any necessary pivoting
     # Initialize PA matrix using the the A matrix
     pa_matrix = a_matrix
 
     # Create the pivot matrix P
-    p_matrix = calculate_pivot_matrix(pa_matrix)
+    p_matrix = perform_pivoting(pa_matrix)
 
     # Perform the PA = LU decomposition
     for j in range(a_size):
