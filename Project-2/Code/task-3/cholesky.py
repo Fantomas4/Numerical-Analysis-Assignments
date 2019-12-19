@@ -1,11 +1,11 @@
 from math import sqrt
 
 
-def perform_cholesky_decomposition(A):
+def perform_cholesky_decomposition(a_matrix):
     """Performs the Cholesky decomposition on matrix A. Matrix A
     must be a symmetric and positive definite matrix.
     The function returns the lower triangular matrix L."""
-    a_size = len(A)
+    a_size = len(a_matrix)
 
     # Initialize the L matrix and fill it with 0's
     l_matrix = []
@@ -19,10 +19,10 @@ def perform_cholesky_decomposition(A):
 
             if i == b:  # Diagonal elements
                 # LaTeX: l_{kk} = \sqrt{ a_{kk} - \sum^{b-1}_{j=1} l^2_{kj}}
-                l_matrix[i][b] = sqrt(A[i][i] - temp)
+                l_matrix[i][b] = sqrt(a_matrix[i][i] - temp)
             else:
                 # LaTeX: l_{ik} = \frac{1}{l_{kk}} \left( a_{ik} - \sum^{b-1}_{j=1} l_{ij} l_{kj} \right)
-                l_matrix[i][b] = (1.0 / l_matrix[b][b] * (A[i][b] - temp))
+                l_matrix[i][b] = (1.0 / l_matrix[b][b] * (a_matrix[i][b] - temp))
     return l_matrix
 
 
