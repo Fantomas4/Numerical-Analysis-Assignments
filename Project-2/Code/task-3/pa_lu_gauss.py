@@ -62,7 +62,7 @@ def perform_pa_lu_decomposition(a_matrix):
 
     # Create the PA matrix, which is the result of A matrix after performing any necessary pivoting
     # Initialize PA matrix using the the A matrix
-    pa_matrix = a_matrix
+    pa_matrix = a_matrix.copy()
 
     # Create the pivot matrix P
     p_matrix = perform_pivoting(pa_matrix)
