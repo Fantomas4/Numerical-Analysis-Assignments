@@ -72,7 +72,6 @@ def perform_pa_lu_decomposition(a_matrix):
         # Set all diagonal elements of l_matrix to 1.0
         l_matrix[j][j] = 1.0
 
-        # LaTeX: u_{ij} = a_{ij} - \sum_{k=1}^{i-1} u_{kj} l_{ik}
         for i in range(j+1):
             s1 = 0
             for k in range(i):
@@ -80,7 +79,6 @@ def perform_pa_lu_decomposition(a_matrix):
 
             u_matrix[i][j] = pa_matrix[i][j] - s1
 
-        # LaTeX: l_{ij} = \frac{1}{u_{jj}} (a_{ij} - \sum_{k=1}^{j-1} u_{kj} l_{ik} )
         for i in range(j, a_size):
             s2 = 0
             for k in range(j):

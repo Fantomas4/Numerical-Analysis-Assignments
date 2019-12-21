@@ -48,9 +48,6 @@ def newton_raphson_root_estimation():
     while True:
         x_n = x_nm1 - (Ffunction.calculate_f(x_nm1) / Ffunction.calculate_der_1_f(x_nm1))
 
-        # print(iter_count)
-        # print(x_n - x_nm1)
-        # print("===========")
         if abs(x_n - x_nm1) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
             break
@@ -77,9 +74,6 @@ def secant_root_estimation():
         x_np1 = x_n - ((Ffunction.calculate_f(x_n) * (x_n - x_nm1)) /
                        (Ffunction.calculate_f(x_n) - Ffunction.calculate_f(x_nm1)))
 
-        # print(iter_count)
-        # print(x_np1 - x_n)
-        # print("===========")
         if abs(x_np1 - x_n) <= t_err:
             # we reached the desired precision, so we can now stop the iterations
             break
