@@ -17,21 +17,10 @@ def perform_cholesky_decomposition(a_matrix):
         for b in range(i + 1):
             temp = sum(l_matrix[i][j] * l_matrix[b][j] for j in range(b))
 
-            if i == b:  # Diagonal elements
+            if i == b:
+                # Diagonal element
                 l_matrix[i][b] = sqrt(a_matrix[i][i] - temp)
             else:
                 l_matrix[i][b] = (1.0 / l_matrix[b][b] * (a_matrix[i][b] - temp))
 
     return l_matrix
-
-
-A = [[6, 3, 4, 8], [3, 6, 5, 1], [4, 5, 10, 7], [8, 1, 7, 25]]
-L = perform_cholesky_decomposition(A)
-
-print("A:")
-for line in A:
-    print(line)
-
-print("L:")
-for line in L:
-    print(line)
