@@ -14,7 +14,7 @@ def lagrange_interpolation(input_points, target_point):
 
         prod_1 = 1
         prod_2 = 1
-        
+
         for k in range(n_p_1):
             if input_points[i][0] != input_points[k][0]:
                 prod_1 *= target_point - input_points[k][0]
