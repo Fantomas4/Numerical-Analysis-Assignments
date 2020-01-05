@@ -7,7 +7,7 @@ def f_function(x):
 
 
 # Calculates f"(x)
-def f_function_der_2(x):
+def f_function_2_der(x):
     return -math.sin(x)
 
 
@@ -16,7 +16,7 @@ def calculate_error(integration_range, points):
 
     partitions_amount = len(points) - 1
 
-    der_2_abs_res = [abs(f_function_der_2(integration_range[0])), f_function_der_2(abs(integration_range[1]))]
+    der_2_abs_res = [abs(f_function_2_der(integration_range[0])), f_function_2_der(abs(integration_range[1]))]
 
     return (math.pow(integration_range[1] - integration_range[0], 3) / (12 * math.pow(
         partitions_amount, 2)) * max(der_2_abs_res))
