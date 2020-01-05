@@ -17,7 +17,7 @@ def trapezoidal_sums(integration_range, partitions_amount):
         points.append(points[i - 1] + partition_size)
 
     f_sum = 0
-    for k in range(1, points_amount - 1):
+    for k in range(1, partitions_amount):
         f_sum += f_function(points[k])
 
     return partition_size / 2 * (f_function(points[0]) + f_function(points[-1]) + 2 * f_sum)
