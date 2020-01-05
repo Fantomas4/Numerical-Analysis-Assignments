@@ -3,12 +3,12 @@ import math
 
 # Calculates f(x)
 def f_function(x):
-    return math.exp(-math.pow(x, 2))
+    return math.sin(x)
 
 
 # Calculates f"(x)
 def f_function_der_2(x):
-    return math.exp(-math.pow(x, 2)) * (4 * math.pow(x, 2) - 2)
+    return -math.sin(x)
 
 
 # Calculates the error for the given trapezoidal sums approximation
@@ -44,7 +44,7 @@ def trapezoidal_sums(integration_range, partitions_amount):
 
 
 # Since we want to perform the trapezoidal sums estimation for 11 points,
-# we give 10 as the amount of partitions
-result = trapezoidal_sums((0, 1), 8)
+# we give 10 as the amount of partitions, because partition number = points amount - 1
+result = trapezoidal_sums((0, math.pi / 2), 10)
 print("Trapezoidal Sums estimation: " + str(result[0]))
 print("|Error| <= " + str(result[1]))
