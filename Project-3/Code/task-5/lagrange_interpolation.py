@@ -1,7 +1,7 @@
 import math
 
 
-def lagrange_interpolation(input_points, target_point):
+def lagrange_interpolation(input_points, target_x):
     """" Receives a list that contains n+1 input points. Performs
     the Lagrange interpolation based on these points, and calculates the
     approximation of the target point """
@@ -17,7 +17,7 @@ def lagrange_interpolation(input_points, target_point):
 
         for k in range(n_p_1):
             if input_points[i][0] != input_points[k][0]:
-                prod_1 *= target_point - input_points[k][0]
+                prod_1 *= target_x - input_points[k][0]
 
                 prod_2 *= input_points[i][0] - input_points[k][0]
 
@@ -58,6 +58,7 @@ def lagrange_interpolation(input_points, target_point):
 sample_points = [(-3, -0.14112), (-2.5, -0.59847), (-1.57079, -1), (-1, -0.84147), (-0.1, -0.09983), (0.1, 0.09983),
                  (1, 0.84147), (1.57079, 1), (2.5, 0.59847), (3, 0.14112)]
 
-point = 3/5
-print(lagrange_interpolation(sample_points, point))
+user_input = int(input("Enter x for which the sin(x) Lagrange interpolation will be performed: "))
+
+print("The result is: " + str(lagrange_interpolation(sample_points, user_input)))
 

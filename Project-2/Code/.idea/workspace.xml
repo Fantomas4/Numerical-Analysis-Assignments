@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1201ff6e-d4fa-4c8a-8323-5bc6ecbac76f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Project-3/Code/task-5/least_squares_interpolation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Project-3/Code/task-5/pa_lu_gauss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/root_estimation_algorithms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-2/modified_root_estimation_algorithms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +29,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/task-2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -197,6 +198,7 @@
       <workItem from="1575896338287" duration="10600000" />
       <workItem from="1576019483344" duration="256000" />
       <workItem from="1576461160218" duration="12269000" />
+      <workItem from="1579364893879" duration="945000" />
     </task>
     <task id="LOCAL-00001" summary="Made fixes to the code for tasks 1 and 2.">
       <created>1575909586110</created>

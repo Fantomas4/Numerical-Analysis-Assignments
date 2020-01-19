@@ -18,8 +18,8 @@ def calculate_error(integration_range, points):
 
     der_2_abs_res = [abs(f_function_2_der(integration_range[0])), f_function_2_der(abs(integration_range[1]))]
 
-    return (math.pow(integration_range[1] - integration_range[0], 3) / (12 * math.pow(
-        partitions_amount, 2)) * max(der_2_abs_res))
+    return ((math.pow(integration_range[1] - integration_range[0], 3)) / (12 * math.pow(
+        partitions_amount, 2))) * max(der_2_abs_res)
 
 
 # Performs a trapezoidal sums approximation on the given integration range and with
@@ -45,6 +45,10 @@ def trapezoidal_sums(integration_range, partitions_amount):
 
 # Since we want to perform the trapezoidal sums estimation for 11 points,
 # we give 10 as the amount of partitions, because partition number = points amount - 1
-result = trapezoidal_sums((0, math.pi / 2), 10)
+target_range = (0, math.pi / 2)
+partitions_number = 10
+
+result = trapezoidal_sums(target_range, partitions_number)
+
 print("Trapezoidal Sums estimation: " + str(result[0]))
 print("|Error| <= " + str(result[1]))
