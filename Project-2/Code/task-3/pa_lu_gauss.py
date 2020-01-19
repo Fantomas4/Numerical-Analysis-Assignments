@@ -28,7 +28,7 @@ def perform_pivoting(m_matrix):
     id_matrix = [[float(i == j) for i in range(m_size)] for j in range(m_size)]
 
     # Rearrange the id_matrix so that the largest absolute element of each column
-    # of m_matrix is placed on the diagonal of m_matrix
+    # of m_matrix below the diagonal element is placed on the diagonal of m_matrix
     for j in range(m_size):
         max_row = j
         max_value = abs(m_matrix[j][j])

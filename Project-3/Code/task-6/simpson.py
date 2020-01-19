@@ -49,5 +49,5 @@ partitions_number = 10
 
 result = simpson(target_range, partitions_number)
 
-print("Trapezoidal Sums estimation: " + str(result[0]))
-print("|Error| <= " + str(result[1]))
+print("Simpson method estimation: " + str(result[0]))
+print("|Error| <= " + "{0:.16f}".format(result[1]))
